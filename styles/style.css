@@ -1,6 +1,12 @@
 body {
     background-image: url(../images/formValidationBg.jpg);
-    background-position:bottom;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+html {
+    height: 100%;
 }
 .formContainer {
     position: absolute;
