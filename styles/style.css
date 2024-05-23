@@ -1,3 +1,6 @@
+* {
+    color: white;
+}
 body {
     background-image: url(../images/formValidationBg.jpg);
     background-position:center;
