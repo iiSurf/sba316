@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,38 @@
     <script defer type="text/javascript" src="./script.mjs"></script>
     <link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
-    // Form is here!
-    <div class = "formContainer">
-        <form id = "registration">
-            <input required type="text" title="Enter username" id="username" name="username" placeholder="username" /><br>
-            <input type="text" title="Enter your name" id="name" name="name" placeholder="Name" /><br>
-            <input type="email" title="Enter email" id="email" name="email" placeholder="Email" /><br>
-            <input type="text" title="Enter Password" id="password" name="password" placeholder="Password" /><br>
-            <input type="text" title="Re-enter Password" id="rePassword" name="rePassword" placeholder="Repeat Password" /><br>
-            <p id="forgotUserPass" title="Forgot Password?" >Forgot your <a href="#">Username</a> or <a href="#">Password?</a></p>
-            <button>Submit</button>
+    <!-- Form is here! -->
+        <form class = "login">
+            <div class="formInput">
+                <input type="email" title="Enter email" id="email" name="email" placeholder="Email" />
+            </div>
+            <div class="formInput">
+                <input type="text" title="Enter Password" id="password" name="password" placeholder="Password" />
+            </div>
+            <button class="formButton" type="submit">Submit</button>
         </form>
+    <!-- Form Ends Here. -->
+
+    <!-- Ideers for another time! -->
+    <!-- Error Display Container -->
+    <!-- <div id="errorDisplay"></div> -->
+    <!-- Look up .hidden class -->
+
+    <!-- Memory Match Game is Here! -->
+
+    <div id="memoryGameBoard">
+        <div class="card">
+
+        </div>
     </div>
-    // Form Ends Here.
 
-    // Ideers for another time!
-<!-- Error Display Container -->
-<!-- <div id="errorDisplay"></div> -->
+    <!-- Memory Match Game Ends Here. -->
 
-    // Memory Match Game is Here!
+    <!-- Event Listener for Form Submission is Here! -->
 
-    <div id="memoryGame"></div>
-
-    // Memory Match Game Ends Here.
-
-    // Event Listener for Form Submission is Here!
-
-    // Event Listener for Form Submission Ends Here!
+    <!-- Event Listener for Form Submission Ends Here! -->
 </body>
+
 </html>

@@ -1,42 +1,60 @@
 body {
-    background-image: url(../images/formValidationBg.jpg);
-    background-position:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url(../images/formValidationBg2.jpg);
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
 }
-html {
-    height: 100%;
-}
+
 /* Form Starts */
-.formContainer {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    width: 70%;
-    left: 50%;
-    right: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
-    user-select: none;
+
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.formContainer > div {
-    width: 30%;
-    margin: 10%;
-    padding: 5%;
+.formInput {
+    margin-bottom: 20px;
 }
 
-.formContainer form {
-    position: relative;
-    width: 100%;
-    padding: 20% 10%;
+.formButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
+.formButton:hover {
+    background-color: #0056b3;
+}
+
 /* Form Ends */
 
 /* Memory Match Game Starts */
 
+#memoryGameBoard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 80%;
+}
 
+.card {
+    background-color: rgb(40, 244, 244);
+    border: 1px solid #ccc;
+    padding: 30px;
+    text-align: center;
+    font-size: 16px;
+}
 
 /* Memory Match Game Ends */
