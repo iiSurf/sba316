@@ -8,6 +8,7 @@ body {
 html {
     height: 100%;
 }
+/* Form Starts */
 .formContainer {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
@@ -32,3 +33,10 @@ html {
     width: 100%;
     padding: 20% 10%;
 }
+/* Form Ends */
+
+/* Memory Match Game Starts */
+
+
+
+/* Memory Match Game Ends */
