@@ -24,7 +24,7 @@ for (let i = 0; i < numberOfRows; i++) {
     // Event Listener for Form Submission Starts!
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault(); // stops page from refreshing when submit button is clicked.
         form.style.display = "none"; // Hiding the form after submit button click.
         game.style.display = "block"; // Reveal the game
     });
