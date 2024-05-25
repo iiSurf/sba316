@@ -1,58 +1,75 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+body,
+h1,
+p,
+div,
+form,
+input,
+button {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
     background-image: url(../images/formValidationBg.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
+    /* Ensure full viewport height */
 }
 
-/* Form Starts */
-
-.login {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px 40px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+    /* Adjust as needed */
 }
 
-.formInput {
-    margin-bottom: 20px;
+/* Input field styles */
+input {
+    width: 300px;
+    /* Adjust as needed */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.formButton {
+/* Button styles */
+button {
+    padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
     cursor: pointer;
 }
-.formButton:hover {
-    background-color: #0056b3;
-}
 
-/* Form Ends */
-
-/* Memory Match Game Starts */
-
+/* Memory game board styles */
 #memoryGameBoard {
-    display: flex;
-    flex-wrap: wrap;
+    display: none;
+    /* Initially hidden */
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Ensure full viewport height */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Semi-transparent background */
 }
 
+/* Card styles */
 .card {
-    background-color: rgb(5, 89, 89);
-    border: 5px solid #0df020;
-    margin: 10px;
-    height: 100px;
     width: 100px;
+    /* Adjust as needed */
+    height: 100px;
+    /* Adjust as needed */
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
 }
-
-/* Memory Match Game Ends */
