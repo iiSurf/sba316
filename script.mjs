@@ -16,6 +16,9 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
         const card = document.createElement("div"); // Creating a div for each card. ("card-div")
         // console.log(`Add cell ${j} to row ${i}`);
         card.classList.add("card"); // Adding card class to style later.
+
+        // placing image on cards
+
         row.appendChild(card); // Adding card to the row.
     }
     gameBoard.appendChild(row); // Adding full row of cards to the row.
@@ -25,10 +28,10 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
 
 const cardData = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
 const cards = document.querySelectorAll(`.card`); // selecting all card elements.
-
+console.log(cards);
 cards.forEach((card, index) => {
     card.dataset.cardId = index; // Assigning an identifier to each card.
-    card.textConent = cardData[index]; // setting card conent that is based on cardData.
+    card.textContent = cardData[index]; // setting card conent that is based on cardData.
 
     card.addEventListener(`click`, handleCardClick); // Click event listener for each card.
 });
@@ -40,35 +43,55 @@ let flippedCards = []; // Empty array to keep track of the cards that are flippe
 function handleCardClick(event) {
     const cardClicked = event.target; // Get the clicked card element.
 
-    if (flippedCards.length < 2 && !flippedCards.includes(clickedCard)) { // reveal the clicked card.
-        clickedCard.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
-        flippedCards.push(clickedCard); // Adding flipped card to the flippedCards array.
+    if (flippedCards.length < 2 && !flippedCards.includes(cardClicked)) { // reveal the clicked card.
+        //TODO
+        const cardClicked = event.target;
+        console.log('Clicked card:', cardClicked);
+        //TODO
+        cardClicked.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
+        flippedCards.push(cardClicked); // Adding flipped card to the flippedCards array.
         if (flippedCards.length === 2) {
-            const [card1, card2] = flippedCards; 
+            const [card1, card2] = flippedCards; // extracting values from array and assigning them to individual cards.
+        }
+        if (card1.textContent === card2.textContent) {
+            // It is a MATCH!
+            setTimeout(() => {
+                card1.classList.add(`matched`); // adding matched class to both cards when match is found.
+
+                card2.classList.add(`matched`); // same as card1 match
+                flippedCards = []; // empty the flippedCards array.
+            }, 500); // 500 milliseconds
+        } else {
+            // match not found.
+            setTimeout(() => {
+                card1.classList.remove(`flipped`); // flipping both cards back to original state.
+                card2.classList.remove(`flipped`); // same as card1
+                flippedCards = []; // clear the flippedCards array.
+            }, 1000); // 1000 milliseconds
         }
     }
 }
 
 
-// // References for Form and Game Elements is Here!
-// const form = document.getElementById("login");
-// const game = document.getElementById("memoryGameBoard");
-// // References for Form and Game Elements Ends Here.
+// References for Form and Game Elements is Here!
+const form = document.getElementById("login");
+const game = document.getElementById("memoryGameBoard");
+// References for Form and Game Elements Ends Here.
 
-// // Event Listener for Form Submission Starts!
-// form.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     form.style.display = "none";
-//     game.style.display = "block";
-//     playGame();
+// Event Listener for Form Submission Starts!
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    form.style.display = "none";
+    game.style.display = "block";
+    // playGame();
 
-//     // form.remove()
-//     // event.preventDefault()
-//     // playGame()
-// });
+    form.remove()
+    // event.preventDefault()
+    // playGame()
+});
 
-// // Event Listener for Form Submission Ends.
-// // Memory Card Game Layout Ends.
+// Event Listener for Form Submission Ends.
+// Memory Card Game Layout Ends.
 
 // // Memory Card Game Functionality Starts!
 // const cardData = [];
