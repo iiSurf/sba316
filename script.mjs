@@ -10,14 +10,13 @@ const numberOfColumns = 5;
 const gameBoard = document.getElementById("memoryGameBoard"); // Container for the cards in the HTML as a div container.
 
 for (let i = 0; i < numberOfRows; i++) { // for loop for rows
-    const row = document.createElement(`div`);
-    row.classList.add(`card-row`);
+    const row = document.createElement(`div`); // creating a new row as a div.
+    row.classList.add(`card-row`); // adding card-row class to the row.
     for (let j = 0; j < numberOfColumns; j++) { // for loop for columns. Apparently called cells as well?
         const card = document.createElement("div"); // Creating a div for each card. ("card-div")
         // console.log(`Add cell ${j} to row ${i}`);
         card.classList.add("card"); // Adding card class to style later.
-        row.appendChild(card);
-        // Adding card to the row.
+        row.appendChild(card); // Adding card to the row.
     }
     gameBoard.appendChild(row); // Adding full row of cards to the row.
 }
@@ -25,18 +24,30 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
 // Card data with unique identifiers.
 
 const cardData = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
-const cards = document.querySelectorAll(`.card`);
+const cards = document.querySelectorAll(`.card`); // selecting all card elements.
 
 cards.forEach((card, index) => {
-    card.dataset.cardId = index; // Assigning an identifier
-    card.textConent = cardData[index]; // setting card conent
+    card.dataset.cardId = index; // Assigning an identifier to each card.
+    card.textConent = cardData[index]; // setting card conent that is based on cardData.
 
-    card.addEventListener(`click`, handleCardClick); // Click event listener for cards.
+    card.addEventListener(`click`, handleCardClick); // Click event listener for each card.
 });
 
 // The logic that makes the memory match game playable.
 
+let flippedCards = []; // Empty array to keep track of the cards that are flipped.
 
+function handleCardClick(event) {
+    const cardClicked = event.target; // Get the clicked card element.
+
+    if (flippedCards.length < 2 && !flippedCards.includes(clickedCard)) { // reveal the clicked card.
+        clickedCard.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
+        flippedCards.push(clickedCard); // Adding flipped card to the flippedCards array.
+        if (flippedCards.length === 2) {
+            const [card1, card2] = flippedCards; 
+        }
+    }
+}
 
 
 // // References for Form and Game Elements is Here!
