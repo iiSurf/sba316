@@ -2,43 +2,42 @@
 // paragraph.style.color = "white";
 
 // Memory Card Game Layout Starts!
+// Card grid build
 const numberOfRows = 5;
 const numberOfColumns = 5;
-const gameBoard = document.getElementById(`memoryGameBoard`);
+// const cardLayout = []; is this needed? Doesn't appear so.
 
-for (let i = 0; i < numberOfRows; i++) {
+const gameBoard = document.getElementById("memoryGameBoard"); // Container for the cards in the HTML as a div container.
+
+for (let i = 0; i < numberOfRows; i++) { // for loop for rows
     const row = document.createElement(`div`);
     row.classList.add(`card-row`);
-
-    for (let j = 0; j < numberOfColumns; j++) {
-        const card = document.createElement(`div`);
-        card.classList.add(`card`);
+    for (let j = 0; j < numberOfColumns; j++) { // for loop for columns. Apparently called cells as well?
+        const card = document.createElement("div"); // Creating a div for each card. ("card-div")
+        // console.log(`Add cell ${j} to row ${i}`);
+        card.classList.add("card"); // Adding card class to style later.
         row.appendChild(card);
+        // Adding card to the row.
     }
-    gameBoard.appendChild(row);
+    gameBoard.appendChild(row); // Adding full row of cards to the row.
 }
 
+// Card data with unique identifiers.
+
+const cardData = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
+const cards = document.querySelectorAll(`.card`);
+
+cards.forEach((card, index) => {
+    card.dataset.cardId = index; // Assigning an identifier
+    card.textConent = cardData[index]; // setting card conent
+
+    card.addEventListener(`click`, handleCardClick); // Click event listener for cards.
+});
+
+// The logic that makes the memory match game playable.
 
 
 
-// const numberOfRows = 5;
-// const numberOfColumns = 5;
-// // const cardLayout = [];
-
-// const gameBoard = document.getElementById("memoryGameBoard"); // Container for the cards in the HTML as a div container.
-
-// for (let i = 0; i < numberOfRows; i++) { // for loop for rows
-//     const row = document.createElement(`div`);
-//     row.classList.add(`card-row`);
-//     for (let j = 0; j < numberOfColumns; j++) { // for loop for columns. Apparently called cells as well?
-//         const card = document.createElement("div"); // Creating a div for each card. ("card-div")
-//         // console.log(`Add cell ${j} to row ${i}`);
-//         card.classList.add("card"); // Adding card class to style later.
-//         row.appendChild(card);
-//         // Adding card to the row.
-//     }
-//     gameBoard.appendChild(row); // Adding full row of cards to the row.
-// }
 
 // // References for Form and Game Elements is Here!
 // const form = document.getElementById("login");
