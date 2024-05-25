@@ -25,19 +25,20 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
 
 // References for Form and Game Elements is Here!
 const form = document.getElementById("login");
-// const game = document.getElementById("memoryGameBoard");
+const game = document.getElementById("memoryGameBoard");
 // References for Form and Game Elements Ends Here.
 
 // Event Listener for Form Submission Starts!
 form.addEventListener('submit', (event) => {
-    form.style.display = "none";
     event.preventDefault();
-    // playGame();
+    form.style.display = "none";
+    game.style.display = "block";
+    playGame();
 
     // form.remove()
     // event.preventDefault()
     // playGame()
-})
+});
 
 // Event Listener for Form Submission Ends.
 // Memory Card Game Ends.
