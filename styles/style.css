@@ -24,7 +24,7 @@ input {
     /* Adjust as needed */
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid white;
     border-radius: 5px;
 }
 button {
@@ -39,7 +39,7 @@ button {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 48, 29, 0.2);
 }
 .card {
     width: 100px;
@@ -47,4 +47,11 @@ button {
     margin: 10px;
     background-color: #fff;
     border: 1px solid #000;
+}
+
+.card-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
