@@ -3,8 +3,8 @@
 
 // Memory Card Game Layout Starts!
 // Card grid build
-const numberOfRows = 5;
-const numberOfColumns = 5;
+const numberOfRows = 4;
+const numberOfColumns = 4;
 // const cardLayout = []; is this needed? Doesn't appear so.
 
 const gameBoard = document.getElementById("memoryGameBoard"); // Container for the cards in the HTML as a div container.
@@ -27,6 +27,18 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
 // Card data with unique identifiers.
 
 const cardData = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
+
+// shuffle the cards
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// shuffle the card data array
+shuffle(cardData);
+
 const cards = document.querySelectorAll(`.card`); // selecting all card elements.
 console.log(cards);
 cards.forEach((card, index) => {
@@ -45,13 +57,16 @@ function handleCardClick(event) {
 
     if (flippedCards.length < 2 && !flippedCards.includes(cardClicked)) { // reveal the clicked card.
         //TODO
-        const cardClicked = event.target;
         console.log('Clicked card:', cardClicked);
         //TODO
         cardClicked.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
         flippedCards.push(cardClicked); // Adding flipped card to the flippedCards array.
+        let card1;
+        let card2;
         if (flippedCards.length === 2) {
-            const [card1, card2] = flippedCards; // extracting values from array and assigning them to individual cards.
+            const [firstCard, secondCard] = flippedCards; // extracting values from array and assigning them to individual cards.
+            card1 = firstCard;
+            card2 = secondCard;
         }
         if (card1.textContent === card2.textContent) {
             // It is a MATCH!
@@ -72,6 +87,34 @@ function handleCardClick(event) {
     }
 }
 
+// Add reset game function
+
+function resetGame() {
+    cards.forEach(card => {
+        card.classList.remove(`flipped`, `matched`);
+    });
+    flippedCards = [];
+    shuffle(cardData);
+    cardData.forEach((data, index) => {
+        cards[index].textContent = data;
+    });
+}
+
+// event listener for card click
+
+gameBoard.addEventListener(`click`, handleCardClick);
+// Check for win function
+
+function checkForWin() {
+    return cards.every(card => card.classList.contains(`matched`));
+}
+
+// Check for win
+
+if (checkForWin()) {
+    alert(`Yay! You win the game!`);
+    resetGame();
+}
 
 // References for Form and Game Elements is Here!
 const form = document.getElementById("login");
@@ -83,10 +126,9 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     form.style.display = "none";
     game.style.display = "block";
-    // playGame();
+    resetGame();
+    form.remove();
 
-    form.remove()
-    // event.preventDefault()
     // playGame()
 });
 
