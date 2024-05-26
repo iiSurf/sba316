@@ -37,20 +37,7 @@ const numberOfColumns = 4;
 
 const gameBoard = document.getElementById("memoryGameBoard"); // Container for the cards in the HTML as a div container.
 
-for (let i = 0; i < numberOfRows; i++) { // for loop for rows
-    const row = document.createElement(`div`); // creating a new row as a div.
-    row.classList.add(`card-row`); // adding card-row class to the row.
-    for (let j = 0; j < numberOfColumns; j++) { // for loop for columns. Apparently called cells as well?
-        const card = document.createElement("div"); // Creating a div for each card. ("card-div")
-        // console.log(`Add cell ${j} to row ${i}`);
-        card.classList.add("card"); // Adding card class to style later.
-
-        // placing image on cards
-
-        row.appendChild(card); // Adding card to the row.
-    }
-    gameBoard.appendChild(row); // Adding full row of cards to the row.
-}
+// Creating card tempalte with DocumentFragment 
 
 // Card data with unique identifiers.
 
@@ -66,6 +53,21 @@ function shuffle(array) {
 
 // shuffle the card data array
 shuffle(cardData);
+
+for (let i = 0; i < numberOfRows; i++) { // for loop for rows
+    const row = document.createElement(`div`); // creating a new row as a div.
+    row.classList.add(`card-row`); // adding card-row class to the row.
+    for (let j = 0; j < numberOfColumns; j++) { // for loop for columns. Apparently called cells as well?
+        const card = document.createElement("div"); // Creating a div for each card. ("card-div")
+        // console.log(`Add cell ${j} to row ${i}`);
+        card.classList.add("card"); // Adding card class to style later.
+
+        // placing image on cards
+
+        row.appendChild(card); // Adding card to the row.
+    }
+    gameBoard.appendChild(row); // Adding full row of cards to the row.
+}
 
 const cards = document.querySelectorAll(`.card`); // selecting all card elements.
 console.log(cards);
@@ -85,7 +87,7 @@ function handleCardClick(event) {
 
     if (flippedCards.length < 2 && !flippedCards.includes(cardClicked)) { // reveal the clicked card.
         //TODO
-        console.log('Clicked card:', cardClicked);
+        // console.log('Clicked card:', cardClicked);
         //TODO
         cardClicked.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
         flippedCards.push(cardClicked); // Adding flipped card to the flippedCards array.
@@ -103,6 +105,7 @@ function handleCardClick(event) {
 
                 card2.classList.add(`matched`); // same as card1 match
                 flippedCards = []; // empty the flippedCards array.
+                checkWinCondition();
             }, 500); // 500 milliseconds
         } else {
             // match not found.
@@ -114,7 +117,19 @@ function handleCardClick(event) {
         }
     }
 }
+// event listener for card click
 
+gameBoard.addEventListener(`click`, handleCardClick);
+
+function checkWinCondition() {
+    const allCards = document.querySelectorAll(`.card`);
+    const matchedCards = document.querySelectorAll(`.matched`);
+
+    if (matchedCards.length === allCards.length) {
+        alert(`Yay! You matched all the cards! You Win the game!`);
+    }
+}
+// Event Listener for Form Submission Ends.
 // Add reset game function
 
 function resetGame() {
@@ -127,23 +142,6 @@ function resetGame() {
         cards[index].textContent = data;
     });
 }
-
-// event listener for card click
-
-gameBoard.addEventListener(`click`, handleCardClick);
-// Check for win function
-
-function checkForWin() {
-    return cards.every(card => card.classList.contains(`matched`));
-}
-
-// Check for win
-
-if (checkForWin()) {
-    alert(`Yay! You win the game!`);
-    resetGame();
-}
-// Event Listener for Form Submission Ends.
 // Memory Card Game Layout Ends.
 
 // // Memory Card Game Functionality Starts!
