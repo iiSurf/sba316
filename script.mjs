@@ -3,6 +3,23 @@
 
 // Memory Card Game Layout Starts!
 // Card grid build
+
+// References for Form and Game Elements is Here!
+const form = document.getElementById("login");
+const game = document.getElementById("memoryGameBoard");
+// References for Form and Game Elements Ends Here.
+
+// Event Listener for Form Submission Starts!
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    form.style.display = "none";
+    game.style.display = "block";
+    resetGame();
+    form.remove();
+
+    // playGame()
+});
+
 const numberOfRows = 4;
 const numberOfColumns = 4;
 // const cardLayout = []; is this needed? Doesn't appear so.
@@ -115,23 +132,6 @@ if (checkForWin()) {
     alert(`Yay! You win the game!`);
     resetGame();
 }
-
-// References for Form and Game Elements is Here!
-const form = document.getElementById("login");
-const game = document.getElementById("memoryGameBoard");
-// References for Form and Game Elements Ends Here.
-
-// Event Listener for Form Submission Starts!
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    form.style.display = "none";
-    game.style.display = "block";
-    resetGame();
-    form.remove();
-
-    // playGame()
-});
-
 // Event Listener for Form Submission Ends.
 // Memory Card Game Layout Ends.
 
