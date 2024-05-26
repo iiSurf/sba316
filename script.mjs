@@ -12,13 +12,24 @@ const game = document.getElementById("memoryGameBoard");
 // Event Listener for Form Submission Starts!
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    form.style.display = "none";
-    game.style.display = "block";
-    resetGame();
-    form.remove();
 
-    // playGame()
+    if (validateForm()) {
+        form.style.display = "none";
+        game.style.display = "block";
+        resetGame();
+        form.remove();
+
+        // playGame()
+    } else {
+        alert(`Please fill in all input fields to continue.`);
+    }
 });
+
+function validateForm() {
+    const email = document.getElementById(`email`).value;
+    const password = document.getElementById(`password`).value;
+    return email && password;
+}
 
 const numberOfRows = 4;
 const numberOfColumns = 4;
