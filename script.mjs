@@ -54,6 +54,8 @@ function shuffle(array) {
 // shuffle the card data array
 shuffle(cardData);
 
+// Old nested for loop to create card grid. Now moved on to using dynamically created cards by Document Fragment and Clone Node
+
 for (let i = 0; i < numberOfRows; i++) { // for loop for rows
     const row = document.createElement(`div`); // creating a new row as a div.
     row.classList.add(`card-row`); // adding card-row class to the row.
@@ -62,12 +64,37 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
         // console.log(`Add cell ${j} to row ${i}`);
         card.classList.add("card"); // Adding card class to style later.
 
-        // placing image on cards
-
         row.appendChild(card); // Adding card to the row.
     }
     gameBoard.appendChild(row); // Adding full row of cards to the row.
 }
+
+// Attempting Dynamic card generation with cloneNode without causing any errors. Here we go!
+// Ran out of time to implement it. For now I just will comment it out.
+
+// referencing card template in html
+// const cardTemplate = document.getElementById(`cardTemplate`);
+// // createa DocumentFragment to store the cloned cards
+// const fragment = document.createDocumentFragment();
+
+// // looping through card data array
+// cardData.forEach((data, index) => {
+//     // cloning the card template
+//     const cardClone = cardTemplate.content.cloneNode(true);
+
+//     // creating card data with data
+//     const card = cardClone.querySelector(`.card`);
+//     card.dataset.cardId = index;
+//     card.textContent = data;
+
+//     // Appending the cloned card to the fragment
+//     fragment.appendChild(cardClone);
+// });
+
+// // Appending the fragment containing all of the  cards to the game board.
+
+// gameBoard.appendChild(fragment);
+
 
 const cards = document.querySelectorAll(`.card`); // selecting all card elements.
 console.log(cards);
