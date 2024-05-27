@@ -91,34 +91,34 @@ function handleCardClick(event) {
         //TODO
         cardClicked.classList.add(`flipped`); // Adding the flipped class to show the card face on screen.
         flippedCards.push(cardClicked); // Adding flipped card to the flippedCards array.
-        let card1;
-        let card2;
-        if (flippedCards.length === 2) {
-            const [firstCard, secondCard] = flippedCards; // extracting values from array and assigning them to individual cards.
-            card1 = firstCard;
-            card2 = secondCard;
-        }
-        if (card1.textContent === card2.textContent) {
-            // It is a MATCH!
-            setTimeout(() => {
-                card1.classList.add(`matched`); // adding matched class to both cards when match is found.
 
-                card2.classList.add(`matched`); // same as card1 match
-                flippedCards = []; // empty the flippedCards array.
-                checkWinCondition();
-            }, 500); // 500 milliseconds
-        } else {
-            // match not found.
-            setTimeout(() => {
-                card1.classList.remove(`flipped`); // flipping both cards back to original state.
-                card2.classList.remove(`flipped`); // same as card1
-                flippedCards = []; // clear the flippedCards array.
-            }, 1000); // 1000 milliseconds
+        if (flippedCards.length === 2) {
+            const card1 = flippedCards[0];
+            const card2 = flippedCards[1]; // extracting values from array and assigning them to individual cards.
+
+            if (card1 && card2) { // Check if card1 and card2 are defined
+                if (card1.textContent === card2.textContent) {
+                    // It is a MATCH!
+                    setTimeout(() => {
+                        card1.classList.add(`matched`); // adding matched class to both cards when match is found.
+                        card2.classList.add(`matched`); // same as card1 match
+                        flippedCards = []; // empty the flippedCards array.
+                        checkWinCondition();
+                    }, 500); // 500 milliseconds
+                } else {
+                    // match not found.
+                    setTimeout(() => {
+                        card1.classList.remove(`flipped`); // flipping both cards back to original state.
+                        card2.classList.remove(`flipped`); // same as card1
+                        flippedCards = []; // clear the flippedCards array.
+                    }, 1000); // 1000 milliseconds
+                }
+            }
         }
     }
 }
-// event listener for card click
 
+// event listener for card click
 gameBoard.addEventListener(`click`, handleCardClick);
 
 function checkWinCondition() {
