@@ -9,6 +9,7 @@ Created a small single-page web application that includes a form with the **Docu
 - Write out the steps that a user would take to go from beginning to end of website and observe what they do.
 - Create a better game plan and draw out everything that came to mind like tips and features and gameplay ideas.
 - I would like to say that I wish I had more confidence in starting the project. I was slow to begin because I didn't break things down to small bites until later in development.
+- I think I maybe should have thought of a smaller project in the alloted time given. This project has taken so much of my time. Although I loved working on this and learned a lot. It definitely subtracted from work/life balance. I would not change that... this time. I really learned a lot about DOM manipulation.
 
 ### Were there any requirements that were dificult to implement? What do you think would make them easier to implement in future projects?
 - DOM event listeners seemed hard at first until I realized to include quotes when adding styles.
