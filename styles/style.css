@@ -1,10 +1,4 @@
-body,
-h1,
-p,
-div,
-form,
-input,
-button {
+body, h1, p, div, form, input, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -59,6 +53,7 @@ button {
     background-color: #ab4242;
     border: 1px solid #000;
     border-radius: 7px;
+    color: transparent;
 }
 
 .card-row {
@@ -66,4 +61,13 @@ button {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+    background-color: rgb(39, 70, 250);
+}
+
+.matched {
+    background-color: #4c99af;
 }

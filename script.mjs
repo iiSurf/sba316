@@ -1,9 +1,4 @@
-// let paragraph = document.getElementById(`forgotUserPass`);
-// paragraph.style.color = "white";
-
 // Memory Card Game Layout Starts!
-// Card grid build
-
 // References for Form and Game Elements is Here!
 const form = document.getElementById("login");
 const game = document.getElementById("memoryGameBoard");
@@ -18,8 +13,6 @@ form.addEventListener('submit', (event) => {
         game.style.display = "block";
         resetGame();
         form.remove();
-
-        // playGame()
     } else {
         alert(`Please fill in all input fields to continue.`);
     }
@@ -105,6 +98,28 @@ cards.forEach((card, index) => {
     card.addEventListener(`click`, handleCardClick); // Click event listener for each card.
 });
 
+function checkWinCondition() {
+    const allCards = document.querySelectorAll(`.card`);
+    const matchedCards = document.querySelectorAll(`.matched`);
+
+    if (matchedCards.length === allCards.length) {
+        alert(`Yay! You matched all the cards! You Win the game!`);
+    }
+}
+
+// Add reset game function
+
+function resetGame() {
+    cards.forEach(card => {
+        card.classList.remove(`flipped`, `matched`);
+    });
+    flippedCards = [];
+    shuffle(cardData);
+    cardData.forEach((data, index) => {
+        cards[index].textContent = data;
+    });
+}
+
 // The logic that makes the memory match game playable.
 
 let flippedCards = []; // Empty array to keep track of the cards that are flipped.
@@ -146,29 +161,9 @@ function handleCardClick(event) {
 }
 
 // event listener for card click
-gameBoard.addEventListener(`click`, handleCardClick);
+// gameBoard.addEventListener(`click`, handleCardClick);
 
-function checkWinCondition() {
-    const allCards = document.querySelectorAll(`.card`);
-    const matchedCards = document.querySelectorAll(`.matched`);
-
-    if (matchedCards.length === allCards.length) {
-        alert(`Yay! You matched all the cards! You Win the game!`);
-    }
-}
 // Event Listener for Form Submission Ends.
-// Add reset game function
-
-function resetGame() {
-    cards.forEach(card => {
-        card.classList.remove(`flipped`, `matched`);
-    });
-    flippedCards = [];
-    shuffle(cardData);
-    cardData.forEach((data, index) => {
-        cards[index].textContent = data;
-    });
-}
 // Memory Card Game Layout Ends.
 
 // // Memory Card Game Functionality Starts!
