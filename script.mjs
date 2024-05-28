@@ -155,10 +155,18 @@ function handleCardClick(event) {
                         flippedCards = []; // clear the flippedCards array.
                     }, 1000); // 1000 milliseconds
                 }
+                // moveCount();
             }
         }
     }
 }
+
+// let counter = 0;
+
+// function moveCount() {
+//     counter++;
+//     document.getElementById(`counter`).textContent = `Moves: ${counter}`;
+// }
 
 // event listener for card click
 // gameBoard.addEventListener(`click`, handleCardClick);

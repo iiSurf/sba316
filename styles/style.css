@@ -54,6 +54,7 @@ button {
     border: 1px solid #000;
     border-radius: 7px;
     color: transparent;
+    text-align: center;
 }
 
 .card-row {
@@ -71,3 +72,8 @@ button {
 .matched {
     background-color: #4c99af;
 }
+
+/* #movesCount {
+    color: white;
+    font-size: large;
+} */
