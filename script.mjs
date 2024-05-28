@@ -87,7 +87,7 @@ for (let i = 0; i < numberOfRows; i++) { // for loop for rows
 // // Appending the fragment containing all of the  cards to the game board.
 
 // gameBoard.appendChild(fragment);
-
+// TODO: Implement color mapping from char to color so that game is easier to play if have time.
 
 const cards = document.querySelectorAll(`.card`); // selecting all card elements.
 console.log(cards);
